@@ -1,0 +1,289 @@
+/* Five9 ADT Softphone Simulator Styling */
+:root {
+    --f9-navy: #0a192f;
+    --f9-blue-dark: #002b49;
+    --f9-orange: #ff5000;
+    --f9-green: #10b981;
+    --f9-red: #ef4444;
+    --f9-border: #1e293b;
+    --f9-text: #f8fafc;
+    --f9-muted: #94a3b8;
+    --f9-card: #182234;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--f9-navy);
+    color: var(--f9-text);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    user-select: none;
+}
+
+/* Header */
+.adt-header {
+    background: var(--f9-blue-dark);
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 14px;
+    border-bottom: 2px solid var(--f9-orange);
+}
+
+.adt-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 800;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+}
+
+.adt-logo-dot {
+    width: 10px;
+    height: 10px;
+    background-color: var(--f9-orange);
+    border-radius: 50%;
+}
+
+.agent-state-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.agent-state-select {
+    background: #0f172a;
+    color: #ffffff;
+    border: 1px solid var(--f9-border);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    outline: none;
+}
+
+.agent-state-select option[value="Ready"] { color: var(--f9-green); }
+.agent-state-select option[value="NotReady"] { color: var(--f9-red); }
+.agent-state-select option[value="OnCall"] { color: #f59e0b; }
+
+/* Views */
+.adt-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    gap: 16px;
+    overflow-y: auto;
+}
+
+/* Softphone Display */
+.softphone-display {
+    background: #0f172a;
+    border: 1px solid var(--f9-border);
+    border-radius: 8px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.display-label {
+    font-size: 11px;
+    color: var(--f9-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.display-number {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--f9-orange);
+    letter-spacing: 0.05em;
+    min-height: 28px;
+}
+
+.display-status {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--f9-green);
+}
+
+/* Keypad Grid */
+.keypad-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    max-width: 280px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.key-btn {
+    background: var(--f9-card);
+    border: 1px solid var(--f9-border);
+    color: var(--f9-text);
+    height: 48px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s ease;
+}
+
+.key-btn:hover {
+    background: #334155;
+    border-color: var(--f9-orange);
+}
+
+.key-sub {
+    font-size: 9px;
+    color: var(--f9-muted);
+    font-weight: 400;
+}
+
+/* Call Actions */
+.call-actions-row {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.btn-adt-call {
+    flex: 1;
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: #ffffff;
+    border: none;
+    height: 44px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-adt-call:hover {
+    background: linear-gradient(135deg, #059669, #047857);
+}
+
+.btn-adt-hangup {
+    flex: 1;
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: #ffffff;
+    border: none;
+    height: 44px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-adt-hangup:hover {
+    background: linear-gradient(135deg, #dc2626, #b91c1c);
+}
+
+/* In-Call Controls */
+.in-call-controls {
+    display: none;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.control-btn {
+    background: var(--f9-card);
+    border: 1px solid var(--f9-border);
+    color: var(--f9-text);
+    padding: 8px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.control-btn:hover {
+    background: #334155;
+}
+
+.control-btn.active {
+    background: rgba(239, 68, 68, 0.2);
+    border-color: var(--f9-red);
+    color: var(--f9-red);
+}
+
+/* Disposition Modal */
+.disposition-panel {
+    display: none;
+    background: #0f172a;
+    border: 1px solid var(--f9-orange);
+    border-radius: 8px;
+    padding: 14px;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.disposition-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--f9-orange);
+}
+
+.disposition-select {
+    background: var(--f9-card);
+    border: 1px solid var(--f9-border);
+    color: #ffffff;
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    outline: none;
+}
+
+.btn-save-wrapup {
+    background: var(--f9-orange);
+    color: #ffffff;
+    border: none;
+    padding: 8px;
+    border-radius: 4px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* Event Protocol Stream View */
+.protocol-log {
+    background: #050811;
+    border: 1px solid var(--f9-border);
+    border-radius: 6px;
+    padding: 8px;
+    font-family: monospace;
+    font-size: 10px;
+    max-height: 100px;
+    overflow-y: auto;
+    color: #a7f3d0;
+    margin-top: auto;
+}

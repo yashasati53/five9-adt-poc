@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Five9 Agent Desktop Toolkit (ADT) Simulator</title>
+    <link rel="stylesheet" href="css/mock-adt.css">
+</head>
+<body>
+    <!-- Five9 ADT Header -->
+    <header class="adt-header">
+        <div class="adt-brand">
+            <span class="adt-logo-dot"></span>
+            <span>Five9 ADT</span>
+        </div>
+        <div class="agent-state-container">
+            <select id="agentStateSelect" class="agent-state-select">
+                <option value="Ready">Ready</option>
+                <option value="NotReady">Not Ready</option>
+                <option value="OnCall">On Call</option>
+            </select>
+        </div>
+    </header>
+
+    <!-- Five9 ADT Body -->
+    <div class="adt-body">
+        <!-- Display Screen -->
+        <div class="softphone-display">
+            <div id="displayLabel" class="display-label">ENTER PHONE NUMBER</div>
+            <div id="displayNumber" class="display-number">Ready to Dial</div>
+            <div id="displayStatus" class="display-status">IDLE / READY</div>
+        </div>
+
+        <!-- Keypad Grid -->
+        <div id="keypadGrid" class="keypad-grid">
+            <button class="key-btn" data-key="1">1 <span class="key-sub">&nbsp;</span></button>
+            <button class="key-btn" data-key="2">2 <span class="key-sub">ABC</span></button>
+            <button class="key-btn" data-key="3">3 <span class="key-sub">DEF</span></button>
+            <button class="key-btn" data-key="4">4 <span class="key-sub">GHI</span></button>
+            <button class="key-btn" data-key="5">5 <span class="key-sub">JKL</span></button>
+            <button class="key-btn" data-key="6">6 <span class="key-sub">MNO</span></button>
+            <button class="key-btn" data-key="7">7 <span class="key-sub">PQRS</span></button>
+            <button class="key-btn" data-key="8">8 <span class="key-sub">TUV</span></button>
+            <button class="key-btn" data-key="9">9 <span class="key-sub">WXYZ</span></button>
+            <button class="key-btn" data-key="*">* <span class="key-sub">&nbsp;</span></button>
+            <button class="key-btn" data-key="0">0 <span class="key-sub">+</span></button>
+            <button class="key-btn" data-key="#"># <span class="key-sub">&nbsp;</span></button>
+        </div>
+
+        <!-- Call Actions Row -->
+        <div class="call-actions-row">
+            <button id="btnCall" class="btn-adt-call">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                DIAL CALL
+            </button>
+            <button id="btnHangup" class="btn-adt-hangup">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 9c-1.6 0-3.15.25-4.6.72v3.1c0 .39-.23.74-.56.9-.98.49-1.87 1.12-2.66 1.85-.18.18-.43.28-.7.28-.28 0-.53-.11-.71-.29L.29 13.08c-.18-.17-.29-.42-.29-.7 0-.28.11-.53.29-.71C3.34 8.78 7.46 7 12 7s8.66 1.78 11.71 4.67c.18.18.29.43.29.71 0 .28-.11.53-.29.71l-2.48 2.48c-.18.18-.43.29-.71.29-.27 0-.52-.11-.7-.28-.79-.74-1.69-1.36-2.67-1.85-.33-.16-.56-.5-.56-.9v-3.1C15.15 9.25 13.6 9 12 9z"/></svg>
+                HANG UP
+            </button>
+        </div>
+
+        <!-- In-Call Controls -->
+        <div id="inCallControls" class="in-call-controls">
+            <button class="control-btn" id="btnMute">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/></svg>
+                Mute
+            </button>
+            <button class="control-btn" id="btnHold">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                Hold
+            </button>
+            <button class="control-btn" id="btnRecord">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="8"/></svg>
+                Record
+            </button>
+        </div>
+
+        <!-- Disposition Panel -->
+        <div id="dispositionPanel" class="disposition-panel">
+            <div class="disposition-title">SELECT CALL DISPOSITION</div>
+            <select id="dispositionSelect" class="disposition-select">
+                <option value="Sale Completed">Sale Completed</option>
+                <option value="Left Voicemail">Left Voicemail</option>
+                <option value="Customer Busy">Customer Busy</option>
+                <option value="Follow-up Required">Follow-up Required</option>
+                <option value="No Answer">No Answer</option>
+            </select>
+            <button id="btnSaveWrapup" class="btn-save-wrapup">SAVE & CLOSE CALL</button>
+        </div>
+
+        <!-- Protocol Log -->
+        <div id="protocolLog" class="protocol-log">
+            <div><strong style="color:#60a5fa;">[Five9 SDK Protocol Engine Ready]</strong></div>
+        </div>
+    </div>
+
+    <script src="js/mock-adt.js"></script>
+</body>
+</html>

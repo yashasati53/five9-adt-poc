@@ -1,0 +1,22 @@
+{
+  "name": "five9-adt-poc",
+  "version": "1.0.0",
+  "description": "Five9 Agent Desktop Toolkit (ADT) CRM SDK Integration Proof of Concept",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "keywords": [
+    "five9",
+    "adt",
+    "crm-sdk",
+    "click-to-dial",
+    "softphone"
+  ],
+  "author": "Antigravity",
+  "license": "ISC"
+}
